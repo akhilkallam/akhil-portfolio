@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   }
 
   const response = NextResponse.json({ success: true });
-  response.cookies.set("personal_access", process.env.PERSONAL_PASSWORD, {
+  response.cookies.set("personal_access", process.env.PERSONAL_PASSWORD ?? "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
